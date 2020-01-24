@@ -19,9 +19,11 @@ def play_game():
     guesses = 6
     guessed = list()
 
-    print('Welcome to Hangman')
+    print('Welcome to Hangman!')
     while (guesses > 0):
-        print(hangman)
+        print(f'''\n{' '.join(hangman)}''')
+        print(
+            f'''{guesses} guess(es) left\nYou have guessed these letters: {', '.join(guessed)}''')
         letter = input('Letter to guess: ').upper()
         while letter in guessed:
             letter = input(
@@ -38,16 +40,10 @@ def play_game():
             if check_win == 0:
                 win = True
                 break
-            print(hangman)
-            print(
-                f'{guesses} guess(es) left\nYou have guessed these letters {guessed}\n')
         else:
             guesses -= 1
             if guesses == 0:
                 break
-            print(hangman)
-            print(
-                f'{guesses} guess(es) left\nYou have guessed these letters {guessed}\n')
 
     if win:
         print('Congrats, you won! 👍')
